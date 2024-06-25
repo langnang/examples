@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./../_assets/lib/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./../_assets/lib/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+  <style>
+    .navbar-brand>img {
+      display: inline-block;
+      height: -webkit-fill-available;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../">
+            <img src="./../_assets/svg/bootstrap-solid.svg" alt="">
+            Bootstrap v3
+          </a>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+      <div>
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-danger">Danger</span>
+        <span class="badge badge-warning">Warning</span>
+        <span class="badge badge-info">Info</span>
+        <span class="badge badge-light">Light</span>
+        <span class="badge badge-dark">Dark</span>
+
+        <span class="badge badge-pill badge-primary">Primary</span>
+        <span class="badge badge-pill badge-secondary">Secondary</span>
+        <span class="badge badge-pill badge-success">Success</span>
+        <span class="badge badge-pill badge-danger">Danger</span>
+        <span class="badge badge-pill badge-warning">Warning</span>
+        <span class="badge badge-pill badge-info">Info</span>
+        <span class="badge badge-pill badge-light">Light</span>
+        <span class="badge badge-pill badge-dark">Dark</span>
+
+        <a href="#" class="badge badge-primary">Primary</a>
+        <a href="#" class="badge badge-secondary">Secondary</a>
+        <a href="#" class="badge badge-success">Success</a>
+        <a href="#" class="badge badge-danger">Danger</a>
+        <a href="#" class="badge badge-warning">Warning</a>
+        <a href="#" class="badge badge-info">Info</a>
+        <a href="#" class="badge badge-light">Light</a>
+        <a href="#" class="badge badge-dark">Dark</a>
+      </div>
+    </div>
+  </header>
+  <main id="app">
+    <div class="container-fluid" v-for="category in metas.filter(v=>v.type=='category')" :key="category.slug">
+      <h2 class="h2">{{category.name}}</h2>
+      <p class="mb-0">{{category.description}}</p>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+        <div class="col col-md-3 p-2" v-for="content in contents.filter(v=>category.contents.includes(v.slug))" :key="content.slug">
+          <a class="panel panel-default text-decoration-none" :href="content.url||('./'+content.slug+'/index.html')" style="display: block;">
+            <div class="panel-body">
+              <img :src="content.screenshot||('./'+content.slug+'/screenshot.png')" alt="...">
+              <h5 class="card-title">{{content.title}}</h5>
+              <p class="card-text text-muted">{{content.description}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+  <script src="./../_assets/lib/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./../_assets/lib/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="./../_assets/lib/vue/2.6.12/vue.min.js"></script>
+  <script>
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+        metas: [],
+        contents: [],
+      },
+      created() {
+        this.fetchData();
+      },
+      methods: {
+        fetchData() {
+          fetch("./application.json",)
+            .then(res => res.json())
+            .then(res => {
+              const { metas, contents } = res;
+              // this.data = { metas, contens }
+              this.$data.metas = metas
+              this.$data.contents = contents
+            })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
