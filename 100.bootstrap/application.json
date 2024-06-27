@@ -2,32 +2,20 @@
   "_meta": { "slug": "", "name": "", "description": "", "type": "", "status": "", "contents": [] },
   "_content": { "slug": "", "title": "", "description": "", "type": "", "status": "", "metas": [] },
   "metas": [
-    { "slug": "custom-components", "name": "Custom Components", "contents": ["album", "pricing", "checkout", "product", "cover", "carousel", "blog", "dashboard", "sign-in", "sticky-footer", "sticky-footer-navbar"], "type": "category", "description": "Brand new components and templates to help folks quickly get started with Bootstrap and demonstrate best practices for adding onto the framework." },
+    {
+      "slug": "custom-components",
+      "name": "Custom Components",
+      "contents": ["album", "pricing", "checkout", "product", "cover", "carousel", "blog", "dashboard", "sign-in", "sticky-footer", "sticky-footer-navbar"],
+      "type": "category",
+      "description": "Brand new components and templates to help folks quickly get started with Bootstrap and demonstrate best practices for adding onto the framework."
+    },
     { "slug": "framework", "name": "Framework", "type": "category", "contents": ["starter-template", "grid", "jumbotron"], "description": "Examples that focus on implementing uses of built -in components provided by Bootstrap." },
     { "slug": "navbars", "name": "Navbars", "type": "category", "contents": ["navbars", "navbar-static", "navbar-fixed", "navbar-bottom"], "description": "Taking the default navbar component and showing how it can be moved, placed, and extended." },
-    { "slug": "experiments", "name": "Experiments", "type": "category", "contents": ["floating-labels", "offcanvas"], "description": "Examples that focus on future-friendly features or techniques." }
+    { "slug": "experiments", "name": "Experiments", "type": "category", "contents": ["floating-labels", "offcanvas"], "description": "Examples that focus on future-friendly features or techniques." },
+    { "slug": "bootstrap-v3", "name": "Bootstrap v3", "type": "tag", "contents": [], "description": "" },
+    { "slug": "bootstrap-v4", "name": "Bootstrap v4", "type": "tag", "contents": ["album", "blog", "carousel", "checkout", "cover", "dashboard", "floating-labels", "grid", "jumbotron", "navbar-bottom", "navbar-fixed", "navbar-static", "navbars", "offcanvas", "pricing", "product", "sign-in", "starter-template", "sticky-footer", "sticky-footer-navbar"], "description": "" },
+    { "slug": "bootstrap-v5", "name": "Bootstrap v5", "type": "tag", "contents": [], "description": "" }
   ],
-  "categories": [
-    {
-      "name": "Custom Components",
-      "description": "Brand new components and templates to help folks quickly get started with Bootstrap and demonstrate best practices for adding onto the framework.",
-      "contents": []
-    },
-    {
-      "name": "Framework",
-      "description": "Examples that focus on implementing uses of built -in components provided by Bootstrap.",
-      "contents": []
-    },
-    {
-      "name": "Navbars",
-      "description": "Taking the default navbar component and showing how it can be moved, placed, and extended."
-    },
-    {
-      "name": "Experiments",
-      "description": "Examples that focus on future-friendly features or techniques."
-    }
-  ],
-  "tags": [],
   "contents": [
     { "slug": "album", "title": "Album", "description": "Simple one-page template for photo galleries, portfolios, and more.", "url": "", "screenshot": "" },
     { "slug": "pricing", "title": "Pricing", "description": "Example pricing page built with Cards and featuring a custom header and footer.", "url": "", "screenshot": "" },

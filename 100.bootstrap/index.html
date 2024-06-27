@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="../">
         <img src="./assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Bootstrap v4
+        Bootstrap
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -58,37 +58,13 @@
         </form>
       </div>
     </nav>
-    <div class="container-fluid py-2">
-      <span class="badge badge-primary">Primary</span>
-      <span class="badge badge-secondary">Secondary</span>
-      <span class="badge badge-success">Success</span>
-      <span class="badge badge-danger">Danger</span>
-      <span class="badge badge-warning">Warning</span>
-      <span class="badge badge-info">Info</span>
-      <span class="badge badge-light">Light</span>
-      <span class="badge badge-dark">Dark</span>
 
-      <span class="badge badge-pill badge-primary">Primary</span>
-      <span class="badge badge-pill badge-secondary">Secondary</span>
-      <span class="badge badge-pill badge-success">Success</span>
-      <span class="badge badge-pill badge-danger">Danger</span>
-      <span class="badge badge-pill badge-warning">Warning</span>
-      <span class="badge badge-pill badge-info">Info</span>
-      <span class="badge badge-pill badge-light">Light</span>
-      <span class="badge badge-pill badge-dark">Dark</span>
-
-      <a href="#" class="badge badge-primary">Primary</a>
-      <a href="#" class="badge badge-secondary">Secondary</a>
-      <a href="#" class="badge badge-success">Success</a>
-      <a href="#" class="badge badge-danger">Danger</a>
-      <a href="#" class="badge badge-warning">Warning</a>
-      <a href="#" class="badge badge-info">Info</a>
-      <a href="#" class="badge badge-light">Light</a>
-      <a href="#" class="badge badge-dark">Dark</a>
-    </div>
   </header>
   <main id="app">
-    <div class="container-fluid" v-for="category in metas.filter(v=>v.type=='category')" :key="category.slug">
+    <div class="container-fluid py-2">
+      <a href="#" :class="'badge badge-'+randomThemeType()+' mr-1'" v-for="tag in tags" :key="tag.slug">{{tag.name}}</a>
+    </div>
+    <div class="container-fluid" v-for="category in categories" :key="category.slug">
       <h2 class="h2">{{category.name}}</h2>
       <p class="mb-0">{{category.description}}</p>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
@@ -99,6 +75,9 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">{{content.title}}</h5>
+              <div class="mb-1">
+                <span :class="'badge badge-'+randomThemeType()+' mr-1'" v-for="tag in tags.filter(v=>(v.contents||[]).includes(content.slug))" :key="tag.slug">{{tag.name}}</span>
+              </div>
               <p class="card-text text-muted">{{content.description}}</p>
             </div>
           </a>
@@ -107,9 +86,10 @@
     </div>
   </main>
   <footer></footer>
-  <script src="./assets/lib/vue-2.6.12/vue.min.js"></script>
+  <script src="./../_assets/lib/vue/2.6.12/vue.min.js"></script>
+  <script src="./../_assets/lib/mockjs/1.1.0/mock-min.js"></script>
   <script>
-
+    const { Random } = Mock;
     const app = new Vue({
       el: "#app",
       data: {
@@ -119,6 +99,14 @@
       created() {
         this.fetchData();
       },
+      computed: {
+        categories() {
+          return this.metas.filter(v => v.type == 'category') || []
+        },
+        tags() {
+          return this.metas.filter(v => v.type == 'tag') || []
+        }
+      },
       methods: {
         fetchData() {
           fetch("./application.json",)
@@ -126,10 +114,12 @@
             .then(res => {
               const { metas, contents } = res;
               // this.data = { metas, contens }
+              console.log(`res`, res);
               this.$data.metas = metas
               this.$data.contents = contents
             })
-        }
+        },
+        randomThemeType: () => Random.pick(['primary', 'secondary', 'success', 'danger', 'info', 'dark']),
       }
     })
   </script>

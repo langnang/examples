@@ -1,0 +1,41 @@
+{
+  "name": "AdminLTE",
+  "nameCn": "",
+  "ico": "./assets/img/AdminLTELogo.png",
+  "logo": "",
+  "_meta": { "slug": "", "name": "", "description": "", "type": "", "status": "", "contents": [] },
+  "_content": { "slug": "", "title": "", "description": "", "type": "", "status": "", "metas": [] },
+  "metas": [
+    { "slug": "dashboard", "name": "Dashboard", "description": "", "type": "category", "status": "", "contents": ["dashboard-v1", "dashboard-v2", "dashboard-v3"] },
+    { "slug": "widgets", "name": "Widgets", "description": "", "type": "category", "status": "", "contents": ["widgets"] },
+    { "slug": "layout-options", "name": "Layout Options", "description": "", "type": "category", "status": "", "contents": ["top-nav", "top-nav-sidebar", "boxed"] },
+    { "slug": "charts", "name": "Charts", "description": "", "type": "category", "status": "", "contents": [] },
+    { "slug": "ui-element", "name": "UI Element", "description": "", "type": "category", "status": "", "contents": [] },
+    { "slug": "forms", "name": "Forms", "description": "", "type": "category", "status": "", "contents": [] },
+    { "slug": "tables", "name": "Tables", "description": "", "type": "category", "status": "", "contents": [] },
+    { "slug": "", "name": "", "description": "", "type": "", "status": "", "contents": [] },
+    { "slug": "", "name": "", "description": "", "type": "", "status": "", "contents": [] },
+    { "slug": "", "name": "", "description": "", "type": "", "status": "", "contents": [] },
+    { "slug": "", "name": "", "description": "", "type": "", "status": "", "contents": [] },
+    { "slug": "", "name": "", "description": "", "type": "", "status": "", "contents": [] }
+  ],
+  "contents": [
+    { "slug": "dashboard-v1", "title": "Dashboard v1", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "dashboard-v2", "title": "Dashboard v2", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "dashboard-v3", "title": "Dashboard v3", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "widgets", "title": "Widgets", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "top-nav", "title": "Top Navigation", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "top-nav-sidebar", "title": "Top Navigation + Sidebar", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "boxed", "title": "Boxed", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "fixed-sidebar", "title": "Fixed Sidebar", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "fixed-sidebar-custom", "title": "Fixed Sidebar + Custom", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "fixed-topnav", "title": "Fixed Navbar", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "fixed-footer", "title": "Fixed Footer", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "collapsed-sidebar", "title": "Collapsed Sidebar", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "", "title": "", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "", "title": "", "description": "", "type": "", "status": "", "metas": [] },
+    { "slug": "", "title": "", "description": "", "type": "", "status": "", "metas": [] }
+  ],
+  "relationships": [],
+  "options": []
+}

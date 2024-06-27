@@ -1,0 +1,22 @@
+@media (min-width: 768px) {
+
+  body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper,
+  body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer,
+  body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header {
+    transition: margin-left .3s ease-in-out;
+    margin-left: 0;
+  }
+}
+
+.main-header {
+  /* display: none; */
+}
+
+.main-sidebar {
+  display: none;
+}
+
+.layout-navbar-fixed .wrapper .content-wrapper {
+  /* margin-top: 0; */
+  /* padding-top: 0; */
+}

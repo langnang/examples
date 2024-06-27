@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminLTE Examples</title>
+  <link rel="stylesheet" href="./../_assets/lib/bootstrap/4.6.2/css/bootstrap.min.css">
+  <style>
+    .card-img-top {
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .card-img-top img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../">
+          <img src="./assets/img/AdminLTELogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          {{name}}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto d-none">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0 d-none">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+    </header>
+    <main>
+      <div class="container-fluid py-2">
+        <a href="#" :class="'badge badge-'+randomThemeType()+' mr-1'" v-for="tag in tags" :key="tag.slug">{{tag.name}}</a>
+      </div>
+      <div class="container-fluid" v-for="category in categories" :key="category.slug">
+        <h2 class="h2">{{category.name}}</h2>
+        <p class="mb-0">{{category.description}}</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+          <div class="col p-2" v-for="content in contents.filter(v=>category.contents.includes(v.slug))" :key="content.slug">
+            <a class="card text-decoration-none" :href="content.url||('./'+content.slug+'/index.html')">
+              <div class="card-img-top">
+                <img :src="content.screenshot||('./'+content.slug+'/screenshot.png')" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{content.title}}</h5>
+                <div class="mb-1">
+                  <span :class="'badge badge-'+randomThemeType()+' mr-1'" v-for="tag in tags.filter(v=>(v.contents||[]).includes(content.slug))" :key="tag.slug">{{tag.name}}</span>
+                </div>
+                <p class="card-text text-muted">{{content.description}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </div>
+  <script src="./../_assets/lib/vue/2.6.12/vue.min.js"></script>
+  <script src="./../_assets/lib/mockjs/1.1.0/mock-min.js"></script>
+  <script>
+    const { Random } = Mock;
+    const app = new Vue({
+      el: "#app",
+      data: {
+        name: "",
+        ico: "",
+        logo: "",
+        metas: [],
+        contents: [],
+      },
+      created() {
+        this.fetchData();
+      },
+      computed: {
+        categories() {
+          return this.metas.filter(v => v.type == 'category') || []
+        },
+        tags() {
+          return this.metas.filter(v => v.type == 'tag') || []
+        }
+      },
+      methods: {
+        fetchData() {
+          fetch("./application.json",)
+            .then(res => res.json())
+            .then(res => {
+              const { name, ico, logo, metas, contents } = res;
+              // this.data = { metas, contens }
+              console.log(`res`, res);
+              this.$data.name = name
+              this.$data.ico = ico
+              this.$data.logo = logo
+              this.$data.metas = metas
+              this.$data.contents = contents
+            })
+        },
+        randomThemeType: () => Random.pick(['primary', 'secondary', 'success', 'danger', 'info', 'dark']),
+      }
+    })
+  </script>
+</body>
+
+</html>
