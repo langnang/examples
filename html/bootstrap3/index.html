@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bootstrap v4 Examples</title>
-  <link rel="stylesheet" href="./assets/lib/bootstrap-4.6.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/lib/bootstrap-5.3.3/css/bootstrap.min.css">
   <style>
     .card-img-top {
       height: 240px;
@@ -22,8 +22,8 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="../">
-        <img src="./assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Bootstrap
+        <img src="./assets/brand/bootstrap-logo.svg" height="30" class="d-inline-block align-top" alt="">
+        Bootstrap v5
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -61,9 +61,9 @@
 
   </header>
   <main id="app">
-    <div class="container-fluid py-2">
+    <!-- <div class="container-fluid py-2">
       <a href="#" :class="'badge badge-'+randomThemeType()+' mr-1'" v-for="tag in tags" :key="tag.slug">{{tag.name}}</a>
-    </div>
+    </div> -->
     <div class="container-fluid" v-for="category in categories" :key="category.slug">
       <h2 class="h2">{{category.name}}</h2>
       <p class="mb-0">{{category.description}}</p>
@@ -75,9 +75,9 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">{{content.title}}</h5>
-              <div class="mb-1">
+              <!-- <div class="mb-1">
                 <span :class="'badge badge-'+randomThemeType()+' mr-1'" v-for="tag in tags.filter(v=>(v.contents||[]).includes(content.slug))" :key="tag.slug">{{tag.name}}</span>
-              </div>
+              </div> -->
               <p class="card-text text-muted">{{content.description}}</p>
             </div>
           </a>

@@ -1,0 +1,49 @@
+{
+  "_meta": { "slug": "", "name": "", "description": "", "type": "", "status": "", "contents": [] },
+  "_content": { "slug": "", "title": "", "description": "", "type": "", "status": "", "metas": [] },
+  "metas": [
+    { "slug": "snippets", "name": "Snippets", "contents": "", "type": "category", "description": "Common patterns for building sites and apps that build on existing components and utilities with custom CSS and more." },
+    {
+      "slug": "custom-components",
+      "name": "Custom Components",
+      "contents": ["album", "pricing", "checkout", "product", "cover", "carousel", "blog", "dashboard", "sign-in", "sticky-footer", "sticky-footer-navbar"],
+      "type": "category",
+      "description": "Brand new components and templates to help folks quickly get started with Bootstrap and demonstrate best practices for adding onto the framework."
+    },
+    { "slug": "framework", "name": "Framework", "type": "category", "contents": ["starter-template", "grid", "jumbotron"], "description": "Examples that focus on implementing uses of built -in components provided by Bootstrap." },
+    { "slug": "navbars", "name": "Navbars", "type": "category", "contents": ["navbars", "navbar-static", "navbar-fixed", "navbar-bottom"], "description": "Taking the default navbar component and showing how it can be moved, placed, and extended." },
+    { "slug": "rtl", "name": "RTL", "type": "category", "contents": ["album-rtl"], "description": "See Bootstrap's RTL version in action with these modified Custom Components examples." },
+    { "slug": "Integrations", "name": "integrations", "type": "category", "contents": ["masonry"], "description": "Integrations with external libraries." },
+    { "slug": "experiments", "name": "Experiments", "type": "category", "contents": ["floating-labels", "offcanvas"], "description": "Examples that focus on future-friendly features or techniques." },
+    { "slug": "bootstrap-v3", "name": "Bootstrap v3", "type": "tag", "contents": [], "description": "" },
+    { "slug": "bootstrap-v4", "name": "Bootstrap v4", "type": "tag", "contents": [], "description": "" },
+    { "slug": "bootstrap-v5", "name": "Bootstrap v5", "type": "tag", "contents": ["album", "album-rtl", "badges", "blog", "carousel", "checkout", "cover", "dashboard", "floating-labels", "grid", "jumbotron", "navbar-bottom", "navbar-fixed", "navbar-static", "navbars", "offcanvas", "pricing", "product", "sign-in", "starter-template", "sticky-footer", "sticky-footer-navbar"], "description": "" }
+  ],
+  "contents": [
+    { "slug": "album", "title": "Album", "description": "Simple one-page template for photo galleries, portfolios, and more.", "url": "", "screenshot": "" },
+    { "slug": "album-rtl", "title": "Album RTL", "description": "Simple one-page template for photo galleries, portfolios, and more.", "url": "", "screenshot": "" },
+    { "slug": "pricing", "title": "Pricing", "description": "Example pricing page built with Cards and featuring a custom header and footer.", "url": "", "screenshot": "" },
+    { "slug": "checkout", "title": "Checkout", "description": "Custom checkout form showing our form components and their validation features.", "url": "", "screenshot": "" },
+    { "slug": "product", "title": "Product", "description": "Lean product-focused marketing page with extensive grid and image work.", "url": "", "screenshot": "" },
+    { "slug": "cover", "title": "Cover", "description": "A one-page template for building simple and beautiful home pages.", "url": "", "screenshot": "" },
+    { "slug": "carousel", "title": "Carousel", "description": "Customize the navbar and carousel, then add some new components.", "url": "", "screenshot": "" },
+    { "slug": "blog", "title": "Blog", "description": "Magazine like blog template with header, navigation, featured content.", "url": "", "screenshot": "" },
+    { "slug": "dashboard", "title": "Dashboard", "description": "Basic admin dashboard shell with fixed sidebar and navbar.", "url": "", "screenshot": "" },
+    { "slug": "sign-in", "title": "Sign-in", "description": "Custom form layout and design for a simple sign in form.", "url": "", "screenshot": "" },
+    { "slug": "sticky-footer", "title": "Sticky footer", "description": "Attach a footer to the bottom of the viewport when page content is short.", "url": "", "screenshot": "" },
+    { "slug": "sticky-footer-navbar", "title": "Sticky footer navbar", "description": "Attach a footer to the bottom of the viewport with a fixed top navbar.", "url": "", "screenshot": "" },
+    { "slug": "starter-template", "title": "Starter template", "description": "Nothing but the basics: compiled CSS and JavaScript.", "url": "", "screenshot": "" },
+    { "slug": "grid", "title": "Grid", "description": "Multiple examples of grid layouts with all four tiers, nesting, and more.", "url": "", "screenshot": "" },
+    { "slug": "jumbotron", "title": "Jumbotron", "description": "Build around the jumbotron with a navbar and some basic grid columns.", "url": "", "screenshot": "" },
+    { "slug": "jumbotrons", "title": "Jumbotrons", "description": "Build around the jumbotron with a navbar and some basic grid columns.", "url": "", "screenshot": "" },
+    { "slug": "masonry", "title": "Masonry", "description": "Combine the powers of the Bootstrap grid and the Masonry layout.", "url": "", "screenshot": "" },
+    { "slug": "navbars", "title": "Navbars", "description": "Demonstration of all responsive and container options for the navbar.", "url": "", "screenshot": "" },
+    { "slug": "navbar-static", "title": "Navbar static", "description": "Single navbar example of a static top navbar along with some additional content.", "url": "", "screenshot": "" },
+    { "slug": "navbar-fixed", "title": "Navbar fixed", "description": "Single navbar example with a fixed top navbar along with some additional content.", "url": "", "screenshot": "" },
+    { "slug": "navbar-bottom", "title": "Navbar bottom", "description": "Single navbar example with a bottom navbar along with some additional content.", "url": "", "screenshot": "" },
+    { "slug": "floating-labels", "title": "Floating labels", "description": "Beautifully simple forms with floating labels over your inputs.", "url": "", "screenshot": "" },
+    { "slug": "offcanvas", "title": "Offcanvas", "description": "Turn your expandable navbar into a sliding offcanvas menu.", "url": "", "screenshot": "" }
+  ],
+  "relationships": [],
+  "options": []
+}
