@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://www.unpkg.com/viewerjs@1.11.6/dist/viewer.css">
+</head>
+
+<body>
+  <div class="container" id="app">
+    <div class="images" v-viewer="{movable: false}">
+      <img v-for="src in images" :key="src" :src="src">
+    </div>
+  </div>
+  <script src="https://www.unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://www.unpkg.com/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+  <script src="https://www.unpkg.com/vue@2.7.16/dist/vue.min.js"></script>
+  <script src="https://www.unpkg.com/viewerjs@1.11.6/dist/viewer.min.js"></script>
+  <script src="https://www.unpkg.com/v-viewer@1.7.4/dist/index.umd.js"></script>
+  <script>
+    Vue.use(VueViewer.default)
+    const app = new Vue({
+      el: "#app",
+      data: {
+        images: ['https://img0.baidu.com/it/u=3053380974,512885723&fm=253&fmt=auto&app=138&f=JPEG?w=700&h=367'],
+      },
+    })
+  </script>
+</body>
+
+</html>
