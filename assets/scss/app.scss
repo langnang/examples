@@ -1,0 +1,43 @@
+// container
+.container {
+    &-fluid {}
+}
+
+// grid
+.row {}
+
+.col {}
+
+// margin
+.m {
+    &x {
+        &-1 {}
+
+        &-2 {}
+
+        &-3 {}
+    }
+
+    &y {}
+
+    &t {}
+
+    &r {}
+
+    &b {}
+
+    &l {}
+}
+
+// padding
+.p {}
+
+// display
+.d {
+    &-flex {}
+}
+
+.jub {}
+
+// card
+.card {}
