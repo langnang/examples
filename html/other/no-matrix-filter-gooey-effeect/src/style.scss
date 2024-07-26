@@ -1,0 +1,49 @@
+$t: 4s;
+
+html, body, div { display: grid }
+
+html, body { grid-template: 100%/ 100% }
+
+html { min-height: 100% }
+
+body {
+	overflow: hidden;
+	/* just to prove we can have an image background behind */
+	background: url(https://images.unsplash.com/photo-1533644756484-bb7b29ac7fcd?w=400) 50%/ cover;
+}
+
+/* take SVG with zero dimnsions out of document flow */
+svg[height='0'] { position: fixed }
+
+.goo {
+	/* particles next to one another, not one underneath the other */
+	grid-auto-flow: column;
+	/* some space between them */
+	grid-gap: 4em;
+	/* put it in the middle of the single blody grid cell */
+	place-self: center;
+	filter: url(#goo)
+}
+
+.particle {
+	--i: 0;
+	padding: 5em;
+	border-radius: 50%; /* make them round, but you don't need to */
+	translate: -50%;
+	/* background depending on particle (index) 
+	 * just some random numbers to compute to different hues */
+	background: hsl(calc(var(--i)*145 - 96), 85%, 75%);
+	font-size: clamp(.5em, 2.5vmin, 10em);
+	/* different blur value depending on particle */
+	/* this make all disappear if bigger than half the smallest 
+	 * particle dimension, but other than that, anything goes */
+	/* blurring makes edge pixels semitransparent - this is very important */
+	filter: blur(calc((2 + var(--i))*1em));
+	/* animation so they alternate moving apart and moving closer together */
+	animation: t $t ease-in-out calc(var(--i)*#{-1*$t}) infinite alternate;
+	
+	/* another index for second particle */
+	&:nth-child(2) { --i: 1 }
+}
+
+@keyframes t { to { translate: 50% } }
