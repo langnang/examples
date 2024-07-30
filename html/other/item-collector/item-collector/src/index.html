@@ -1,0 +1,178 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Item Collector</title>
+
+<link rel="stylesheet" href="goomyclicker.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="sprintf.min.js"></script>
+
+<script type="text/javascript" src="about.js"></script>
+
+<script type="text/javascript" src="items.js"></script>
+<script type="text/javascript" src="recalc.js"></script>
+<script type="text/javascript" src="goomyclicker.js"></script>
+<script type="text/javascript" src="saveload.js"></script>
+
+<script type="text/javascript" src="scale.js"></script>
+
+<script type="text/javascript">
+</script>
+</head>
+
+
+<body onload="init_game()">
+
+<div id="container">
+
+  <img id="background" src="https://i.imgur.com/viCph4d.jpgg" />
+
+<div id="gamebox">
+
+	<table style="width: 100%;">
+    
+<tr>
+  <td id="leftsave" >
+    <div id="save_dialog"><font color = orange>
+							Game saved.
+      </div></td>
+    </tr>
+    
+		<tr>
+			<td id="leftbar_c" style="height:740px;overflow:hidden;" >
+        
+				<div id="leftbar" >
+
+         
+					<p><br>
+            <button id="save_button"><font color = orange><font size = 4>Save</button>    
+						<button id="export_button"><font color = orange><font size = 4>Export Save</button>
+              <button id="import_button"><font color = orange><font size = 4>Import Save</button></font>
+
+						
+                
+						<div id="export_dialog">
+							<span class="small"><font color = orange><font size = 2>Export this save file:</span>
+							<textarea id="export_string" style="resize: none;"></textarea>
+							<button id="close_export"><font color = orange><font size = 4>Done</button>
+						</div>
+						<div id="import_dialog">
+							<span class="small"><font color = orange><font size = 2>Import this save file:</span>
+							<textarea id="import_string" style="resize: none;"></textarea>
+							<button id="import_savefile"><font color = orange><font size = 3>Import</button>
+                
+						</div>
+                
+                  </div>
+					</p>
+
+
+					<p>
+						<button id="info_button" onclick="show_info();hide_updateinfo()"><font color = orange><font size = 4>Game info</button>
+            <button id="updateinfo_button" onclick="show_updateinfo();hide_info()" ><font color = orange><font size = 4>Updates</button>
+						<button id="info_button" onclick="query_reset()"><font color = orange><font size = 4>Reset</button>
+              
+						</div>
+              
+              
+					</p>
+
+				</div>
+            <br>  
+				<div id="upgrade_bar" >
+				</div>
+              
+			</td>
+
+    
+              
+			<td id="centre_c" rowspan="2">
+				<div id="centre" style="text-align: center; position: relative;">
+
+					<div id="goomies"><font color = orange>
+            <p><span id="goomycount">0 Items</span><br>
+						<span id="gps"><font color = orange>0 Items per second</span></p>
+					</div>
+					<div id="collection_container" style="margin: auto;">
+						<img id="great_collection" style="margin: auto; height:400px;" src="https://i.imgur.com/WGHnQl1.png" />
+					</div>
+					<div id="stats">
+						<span class="dialog_header">STATS</span>
+            <div>Level <span id="level"></span><progress id="expbar" max="100" value="0"></progress></div>
+            <div><font size= -1>Upon Loading no level will appear until you level up. Unknown how to fix currently.
+					</div>
+              
+
+            <!-- begin panels -->
+
+					<div id="info" class="panel">
+						<span class="dialog_header"><font color = orange>INFORMATION</span>
+						<p>Number of Items: <span id="info_goomycount"  class="indicator"></span></p><font color = orange><font size = 3>
+            <p> Story behind the game - You are a Virtual Reality Item Collector, you will do anything and everything to collect items. You get Bots, Hackers, Admins, even the Internet Officials to help you out. How many Items can you get?<p>
+            <p> I'm an 22 yr old college student so this was just for fun, but future updates are planned along with a completely new game. </p>
+              <br><p>Item Collector was created for the purpose to learn and experiment with Javascript, but I want to thank the creator of Goomy Clicker for releasing the coding behind his game which has allowed me to do this!<br></br></p>
+          
+        <p><CENTER>----Future Updates----</CENTER>
+          More Buildings/Upgrades + Levels!</br>
+          Fully redesigned game(No Goomy Clicker Coding)</p>
+
+						<button onclick="hide_info()"><font color = orange><font size = 4>Close</button>
+					</div>
+  
+<div id="updateinfo" class="panel">
+					<font color = orange><font size = 3>	<span class="dialog_header">UPDATES</span>
+           
+            <p><center>----3/27/14----</center><br>
+              <font size = 5>New Buildings!</font><br><br>
+              - <font size = 4>White Hole</font> (Similar to a Black Hole, but instead of pulling items in, it spits them out)<br>
+               - <font size = 4>Time Traveler </font>(Mysterious person who can bring items from the past to the present)<br>
+               - <font size = 4>Item Manipulator</font> (Changes the value of items)<br>
+               - <font size = 4>Alternate Universe </font>(A whole to Universe to gather items for you)<br><br>
+              Buttons now highlight when you hover over them, also added a scrollbar for the buildings so the page would not expand downward every time a new building was added
+            <p><Center>----3/20/14----</Center><br>
+              Fixed the Reset Bug! (Save before you reset)
+              <br>
+  
+    
+    
+
+						<button onclick="hide_updateinfo()"><font color = orange><font size = 4>Close</button>
+					</div>
+         
+
+					<!-- end panels -->
+
+				</div>
+			</td>
+
+			<td id="rightbar_c" rowspan="2" ><font color = orange><font size = 3 >
+				<div id="rightbar" style="height:925px;overflow:auto;padding:1px;">
+        </style>
+</div>
+
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td id="about_c">
+				<div id="about">
+          
+					<p>Item Collector <span class="version"></span></p>
+					
+				</div>
+			</td>
+		</tr>
+
+	</table>
+
+</div> <!-- gamebox -->
+
+</div>
+
+</body>
+
+</html>

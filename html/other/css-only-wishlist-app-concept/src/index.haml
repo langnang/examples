@@ -1,0 +1,48 @@
+- @games = [{:nicename => 'bioshock', :name => 'Bioshock Infinite', :genre => 'Shooter / action', :year => '2013', :old => '24.99', :new => '14.99', :img => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/bio.jpg'},{:nicename => 'justcause', :name => 'Just Cause 3', :genre => 'Sandbox / action', :year => '2016', :old => '32.99', :new => '26.99', :img => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/jc3_image.png'},{:nicename => 'tombraider', :name => 'Tomb Raider', :genre => 'Puzzle / action', :year => '2016', :old => '44.99', :new => '34.99', :img => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tomb_raider_image.jpg'},{:nicename => 'orcs', :name => 'Orcs Must Die 2', :genre => 'Strategy', :year => '2012', :old => '9.99', :new => '4.99', :img => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/omd_image.jpg'},{:nicename => 'deus', :name => 'Deus Ex 4', :genre => 'Shooter / Sci-Fi', :year => '2016', :old => '39.99', :new => '34.99', :img => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/deusex_image.png'}]
+
+.list
+    .list_inner
+        .list_inner__head
+            %img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/head.png'}
+            %h1 Your wishlist
+            %h2 5 items
+        .list_inner__content
+            -@games.each do |game|
+                %input{:type => 'checkbox', :id => "#{game[:nicename]}", :name => 'game'}
+                %label{:for => "#{game[:nicename]}"}
+                    .game
+                        .game_bg
+                        .game_left
+                            .game_left__image{:style => "background-image:url('#{game[:img]}')"}
+                        .game_right
+                            %h3 #{game[:name]}
+                            %hr
+                            %span.genre
+                                %i.fa.fa-user
+                                %p #{game[:genre]}
+                            %span.date
+                                %i.fa.fa-calendar
+                                %p #{game[:year]}
+                            .game_right__rating
+                                -(1..5).each do
+                                    .star
+                                        .star_icon
+                            %span.old
+                                %i.fa.fa-tag
+                                %p &pound;#{game[:old]}
+                            %span.new
+                                %p &pound;#{game[:new]}
+                        .game_pulse
+                            .game_pulse__point
+                        .game_info
+                            .span-one
+                                %h2 About this game
+                                %hr
+                                %p Rise of the Tomb Raider: 20 Year Celebration includes the base game and Season Pass featuring all-new content. Explore Croft Manor in the new “Blood Ties” story, then defend it against a zombie invasion in “Lara’s Nightmare”. Survive extreme conditions with a friend in the new online Co-Op Endurance mode, and brave the new “Extreme Survivor” difficulty. Also features an outfit and weapon inspired by Tomb Raider III, and 5 classic Lara skins. Existing DLC will challenge you to explore a new tomb that houses an ancient terror in Baba Yaga: The Temple of the Witch, and combat waves of infected predators in Cold Darkness Awakened.
+                            .span-two
+                                %h2 Features
+                                %hr 
+                                %p Rise of the Tomb Raider: 20 Year Celebration includes the base game and Season Pass featuring all-new content. Explore Croft Manor in the new “Blood Ties”.
+                        .game_cta
+                            %img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/cta.png'}
+

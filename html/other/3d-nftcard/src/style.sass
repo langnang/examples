@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,400i,700")
+
+$primary: 	hsla(204, 56%, 15%,1)
+$float: 2.25rem
+$cubic : cubic-bezier(1,.85,.23,1.52)
+$jump: cubic-bezier(.5,2,0,1)
+
+$inner : $jump
+
+
+@mixin blur($i)
+		backdrop-filter: blur($i + rem)
+		-webkit-backdrop-filter: blur($i + rem)
+
+@mixin flex($align-items, $justify-content , $flex-flow , )
+		display: flex
+		align-items: $align-items
+		justify-content: $justify-content 
+		flex-flow: $flex-flow
+	
+	
+body 
+	background: $primary
+	@include flex(center,center,row)
+	min-height: 100vh
+	
+@mixin clear
+	padding: 0
+	margin: 0
+	list-style: none	
+
+	
+*
+	box-sizing: border-box
+	color:  #aaaaaa
+	font-family: Inconsolata, sans-serif
+	text-decoration: none
+	-webkit-touch-callout:none
+	@include clear
+	-webkit-touch-callout: none
+	-webkit-tap-highlight-color: transparent
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+
+@mixin neo 
+	border-radius: .2rem
+	box-shadow: inset  8px 8px 10px #0d222f, inset -8px -8px 10px #153449
+
+@keyframes rotate
+	0%,100%
+		transform: rotateY(0)
+	50%,60%
+		transform: rotateY(-180deg)
+
+
+		
+#app
+	@include neo
+	background: $primary
+	height: 35rem
+	width: 32rem
+	padding: 2rem
+	@include flex(center,center,row)
+	position: relative
+	.text
+		bottom: .5rem
+		opacity: 0.7	
+		position: absolute
+	.page
+		cursor: pointer
+		transform-style: preserve-3d
+		transform: perspective(180rem) 
+		transition: all 1200ms $cubic
+		height: 27rem
+		width: 18rem
+		background: hsla(204, 56%, 10%, 1)
+		border-radius: .8rem
+		padding: 1.5rem 	
+		@include flex(center,center,row)
+		position: relative
+		//animation: rotate 2s linear .5s
+		> *
+			position: absolute
+		.front
+			transform: translate3d(0,0,$float)
+			height: fit-content
+			gap: .5rem
+			@include flex(center,center,column)
+			.wrap
+				@include flex(center,space-between,row)
+				width: 100%
+				span	
+					gap: .2rem
+					@include flex(center,center,row)
+					&:first-child
+						animation: fadein 2s 1.1s $inner both
+						> *
+							color: hsla(225, 50%, 90%, 1)
+						
+					&:last-child
+						animation: fadein 2s 1.3s $inner both
+						> *
+							color: hsla(225, 50%, 70%, 1)
+					i
+						font-size: 1.1rem
+					.ic
+						font-size: .9rem
+						letter-spacing: -1px	
+			.content
+				padding: 1rem 0
+				width: 15rem
+				gap: 1rem
+				@include flex(flex-start,center,column)
+				h2
+					font-size: clamp(1rem , 3vmin , 1.6rem)
+					color: white
+					animation: fadein 2s 700ms $inner both
+				h5	
+					font-size: clamp(.7rem , 2vmin , .8rem)
+					color:  rgba(255,255,255,.5)
+					animation: fadein 2s 900ms $inner both
+			.image
+				animation: fadein 2s 500ms $inner both
+				height: 15rem
+				aspect-ratio: 1
+				border-radius: .8rem
+				overflow: hidden		
+				position: relative
+				cursor: pointer
+				&:hover .overlay
+					z-index: 10
+					opacity: 1
+				img
+					height: 100%
+					width: 100%
+					object-fit: contain
+				.overlay
+					opacity: 0
+					transition: all 400ms ease-out
+					border-radius: .8rem
+					position: absolute
+					height: 15rem
+					width: 15rem
+					background: rgba(255,255,255,.2)
+					@include blur(.4)
+					z-index: 0
+					top: 0
+					@include flex(center,center,row)
+					i
+						color: #c0c0c0
+						text-shadow: 0 0 .5rem hsla(0,0,0,1)
+						font-size: 2rem
+		.back
+			transform: rotateY(180deg) translate3d(0,0,$float)
+			@include flex(center , center ,column)
+			height: inherit	
+			gap: 3rem	
+			position: relative
+			.contact
+				animation-delay: 900ms
+				@include flex(center,center,row)
+				gap: 2rem	
+				i
+					transition: all 400ms ease
+					font-size: 1.2rem
+					&:hover
+						color: hsla(225, 50%, 70%, 1)
+			span
+				font-size: 1rem
+				animation-delay: 700ms
+				color: hsla(225, 50%, 70%, 1)
+				> *
+					float: right
+					margin-left: .5rem
+					font-size: 1rem
+					color: hsla(225, 50%, 90%, 1)
+			.profile
+				animation-delay: 500ms
+				box-shadow: rgba(0,0,0,1) 0 .0 1rem
+				border-radius: 50%
+				background-size: 100% 100%
+				background-repeat: no-repeat
+				height: 10rem
+				aspect-ratio: 1
+				background-image: url('https://st2.depositphotos.com/1009634/7235/v/950/depositphotos_72350117-stock-illustration-no-user-profile-picture-hand.jpg')
+			.anima
+				animation: fadein 2s $inner
+			
+	.flip
+		transform: perspective(180rem) rotateY(180deg)
+					
+		
+		
+		
+		
+@keyframes fadein
+	from
+		transform: translateY(50%)
+		clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)
+	to
+		transform: translateY(0)
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%)
+		
+		
+		

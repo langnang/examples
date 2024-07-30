@@ -1,0 +1,186 @@
+- var cherryBlossomCount = 23;
+- var fruitCount = 3;
+- var flowerPetalCount = 5;
+- var flowerCount = 3;
+- var rootCount = 5;
+- var leafCount = 48;
+- var grassTriangleCount = 15;
+
+- var totalRoses = 12;
+- var totalFlowers = 12;
+- var totalTrees = 6;
+
+mixin makeItems(className, itemCount)
+  - var item = 0;
+  while item < itemCount
+    div(class=`${className}`)
+    - item++;
+
+mixin callMixins(mixinName, callCount)
+  - var m = 0;
+  while m < callCount
+    +#{mixinName}
+    - m++;
+
+mixin tree(cherry=false, fruit="pear")
+  .tree
+    +trunk
+    if cherry == true
+      +cherryBlossoms
+    else
+      +leaves
+      +fruit(fruit)
+
+mixin cherryBlossoms
+  .leaves.cherry-blossoms
+    +callMixins('cherryBlossom', cherryBlossomCount)
+
+mixin fruit(fruit)
+  .fruits
+    if fruit == "pear"
+      +makeItems('fruit pear', fruitCount)
+
+mixin cherryBlossom
+  .cherry-blossom
+    +makeItems('petal', flowerPetalCount)
+
+mixin leaves
+  .leaves
+    +makeItems('leaf', leafCount)
+
+mixin trunk
+  .trunk
+    .roots
+      +makeItems('root', rootCount)
+
+mixin flowers
+  .flower-leaves
+  .bunch
+    +callMixins('flower', flowerCount)
+
+mixin flower
+  .flower
+    +makeItems('petal', flowerPetalCount)
+
+mixin rose
+  .rose
+    +makeItems('rose-petal', flowerPetalCount)
+
+mixin roses
+  .rose-leaves
+  .stems
+  .bunch
+    +callMixins('rose', flowerCount)
+
+mixin grassTriangles
+  +makeItems('grass-triangle', grassTriangleCount)
+
+mixin palmTree
+  .palm-trunk
+  .palm-fruit
+  .palm-leaves
+    - var l = 0;
+    while l < 4
+      .palm-leaf
+        +makeItems('edges', 5)
+      - l++;
+html
+  head
+    title Isabell's Day Off
+    link(href="style.css", rel="stylesheet")
+  body
+    .contaienr
+      .switch-container
+        .land.grass
+        .land.small-patch
+        .land.path
+        .land.sand
+        .land.water
+        .switch
+          .joycon.blue
+            .minus
+            .buttons
+            .joystick
+            .capture-button
+          .screen
+            .grass-triangles
+              +grassTriangles
+            .grass-triangles
+              +grassTriangles
+            .river
+              .river-row
+                +makeItems('streak', 7)
+              .river-row
+                +makeItems('streak', 7)
+              .flow-container
+                +makeItems('flow', 9)
+            .grass-sand
+            .blanket
+          .joycon.red
+            .plus
+            .buttons
+            .joystick
+            .home-button
+        .joycon-blue-base
+        .black-base
+        .joycon-red-base
+        .switch-base
+          .joycon-shadow-blue
+          .screen-shadow
+          .joycon-shadow-red
+      .scene-overlay
+        .bubbles
+          +makeItems('bubble', 10)
+        .triangles
+        .house
+          .roof
+            .decal
+          .entrance
+            .window
+          .side
+            .side-window
+          .roof-top
+        .right-roof-top
+        .right-roof-cleanup
+          .roof-filling
+        .trees
+          - var i = 0;
+          while i < totalTrees
+            if i % 2
+              +tree(true)
+            else
+              +tree(false)
+            - i++;
+        .flower-field
+          - var flowers = 0;
+          while flowers < totalFlowers
+            .flowers
+              +flowers
+            - flowers++;
+        .rose-field
+          - var roses = 0;
+            while roses < totalRoses
+              .roses
+                +roses
+              - roses++;
+        .isabelle
+          .legs
+          .arm.right-arm
+          .dress
+          .arm.left-arm
+          .head-container
+            .head
+              .right-ear
+              .left-ear
+              .bangs
+              .ponytail
+              .face
+                .eyes
+                .closed
+                .cheeks
+                .mouth
+                .nose
+        .palm-tree
+          +palmTree
+        .palm-tree.joycon-tree
+          +palmTree

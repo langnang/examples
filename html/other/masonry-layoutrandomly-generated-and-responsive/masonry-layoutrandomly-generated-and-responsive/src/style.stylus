@@ -1,0 +1,96 @@
+/**
+  * Masonry CSS
+*/
+$config = {
+  items: 18,
+  responses: {
+    breakpoints: {
+      sm: 430px
+      md: 768px
+      lg: 992px
+      xl: 1500px
+    },
+    cols: {
+      sm: 1,
+      md: 2,
+      lg: 3,
+      xl: 4,
+    }
+  }
+}
+
+.masonry
+  display   flex
+  flex-flow column wrap
+
+.masonry-panel
+  overflow   hidden
+
+  for $breakpoint, $value in $config.responses.breakpoints
+
+    define('$cols', $config.responses.cols[$breakpoint])
+
+    @media(min-width $value)
+      width (100% / $cols * 1%)
+
+      for $panel in (1..$config.items)
+        &:nth-child({$panel})
+          $newOrder = $panel % $cols
+          if $newOrder == 0
+            $newOrder = $cols
+          order $newOrder
+
+
+
+/**
+  * Theming
+*/
+$generateRandomColor()
+  // Define hexidecimal range
+  $hex = 0 1 2 3 4 5 6 7 8 9 'A' 'B' 'C' 'D' 'E' 'F'
+  // get random number between 0 and $hex length
+  $random()
+    return floor(math(0, 'random')*((length($hex) - 1) - 0 + 1) + 0)
+  $result = '#'
+  for $key in (0..5)
+    push($result, $hex[$random()])
+  return unquote(join('', $result))
+
+*
+  box-sizing border-box
+
+body
+  margin           0
+  padding          2px
+
+h1
+  font-size  42px
+  margin     0
+  text-align center
+
+.masonry-panel
+  &__content
+    align-items     center
+    border-radius   10px
+    color           white
+    display         flex
+    justify-content center
+    margin          4px
+    min-height      150px
+    padding         10px
+
+  transform scale(0)
+  animation scaleIn .25s cubic-bezier(.64, .57, .67, 1)
+  animation-fill-mode forwards
+
+  for $panel in (1..$config.items)
+    &:nth-child({$panel})
+      .masonry-panel__content
+        background $generateRandomColor()
+      animation-delay ($panel * .15s)
+
+@keyframes scaleIn
+  from
+    transform scale(0)
+  to
+    transform scale(1)

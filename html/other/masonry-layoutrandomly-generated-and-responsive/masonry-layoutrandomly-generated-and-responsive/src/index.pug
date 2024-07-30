@@ -1,0 +1,8 @@
+.masonry
+  - var n = 0
+  while n < 18
+    - var size = Math.floor(Math.random() * 300 + 1)
+    .masonry-panel
+      .masonry-panel__content(style=`height: ${size}px`)
+        h1= n
+    - n++

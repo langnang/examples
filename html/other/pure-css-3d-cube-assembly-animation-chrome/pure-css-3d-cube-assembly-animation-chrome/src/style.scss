@@ -1,0 +1,138 @@
+@import 'compass/css3';
+
+$n-per-dim: 3; // same as in Jade code
+$n-dims: 3; // same as in Jade code
+$n-faces: 6; // same as in Jade code
+$n4gon: 4; // number of square edges
+$l: 4em; // cube edge length
+$t: 2s; // animation-duration
+$p: 10%;
+
+$ba4gon: 360deg/$n4gon;
+$n: $n-per-dim - 1;
+$nh: .5*$n;
+$dm: $nh*$l;
+$m: 1;
+
+body {
+	overflow: hidden;
+	margin: 0;
+	height: 100vh;
+	perspective: 32em;
+	background: mix(whitesmoke, gainsboro);
+}
+
+div {
+	position: absolute;
+	transform-style: preserve-3d;
+}
+
+.assembly {
+	top: 50%; left: 50%;
+	transform: rotateX(-45deg) rotateY(-45deg);
+}
+
+.comp-3d {
+	animation: r $t ease-in-out infinite;
+	
+	&--i { animation-name: ri; }
+	
+	&--o { animation-name: ro; }
+}
+
+@keyframes ri {
+	0%, #{2*$p} { transform: rotateY(-.5turn) }
+	50% { transform: none; }
+	100%, #{100% - 2*$p} {
+		transform: rotateX(-.5turn);
+	}
+}
+
+@keyframes ro {
+	0%, #{3.5*$p} { transform: rotate(-.5turn); }
+	#{100% - 3.5*$p}, 100% { transform: none; }
+}
+
+@for $i from 0 to $n-per-dim {
+	$i1: $i%$n;
+	$i2: pow(-1, floor($i/$n));
+	$x: ($i - $nh)*$l;
+	
+	@for $j from 0 to $n-per-dim {
+		$j1: $j%$n;
+		$j2: pow(-1, floor($j/$n));
+		$y: ($j - $nh)*$l;
+		
+		@for $k from 0 to $n-per-dim {
+			$k1: $k%$n;
+			$k2: pow(-1, floor($k/$n));
+			$z: ($k - $nh)*$l;
+			
+			@if $i1 + $j1 + $k1 > 0 {
+				:not(.pos) > .cube:nth-child(#{$m}) {
+					transform: translate3d($x, $y, $z);
+				}
+				
+				$m: $m + 1;
+			}
+			@else {
+				$idx: 2*$i + $j + .5*$k + 1;
+				
+				.pos:nth-child(#{$idx}) {
+					transform: scale3d($i2, $j2, $k2)  
+						translate3d($dm, $dm, $dm);
+				}
+			}
+		}
+	}
+}
+
+.cube {
+	.pos & { animation: m $t ease-out infinite }
+	
+	&__face {
+		margin: -.5*$l;
+		width: $l; height: $l;
+		box-shadow: 0 0 .5*$l rgba(gainsboro, .5) inset;
+		backface-visibility: hidden;
+		background: whitesmoke;
+		
+		&:nth-child(2n) {
+			filter: brightness(.97);
+		}
+		
+		&:nth-child(n + #{$n4gon + 1}) {
+			filter: brightness(1.03);
+		}
+
+		@for $i from 0 to $n-faces {
+			&:nth-child(#{$i + 1}) {
+				transform: if($i < $n4gon, 
+					rotateY($i*$ba4gon), 
+					rotateX(pow(-1, $i)*$ba4gon)) 
+					translateZ(.5*$l)
+			}
+		}
+	}
+}
+
+@keyframes m {
+	0%, #{.5*$p}, #{100% - .5*$p}, 100% {
+		transform: none;
+	}
+	#{1.5*$p} {
+		transform: translate3d(0, $l, 0);
+	}
+	#{2.5*$p} {
+		transform: translate3d(0, $l, $l);
+	}
+	#{3.5*$p}, #{100% - 3.5*$p} {
+		transform: translate3d($l, $l, $l);
+	}
+	#{100% - 2.5*$p} {
+		transform: translate3d($l, 0, $l);
+	}
+	#{100% - 1.5*$p} {
+		transform: translate3d($l, 0, 0);
+	}
+}

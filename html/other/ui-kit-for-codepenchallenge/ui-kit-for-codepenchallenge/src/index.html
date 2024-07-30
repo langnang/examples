@@ -1,0 +1,303 @@
+<div class="container" id="app">
+
+    <div class="col">
+
+        <div class="box">
+            <h3>Colors <small><span>Pro Tip</span>Edit Hex codes</small></h3>
+            <div>
+
+                <div class="demo-color">
+                    <div class="preview">
+                        <span style="--background: var(--primary-1)"></span>
+                        <div class="edit">
+                            <strong>--primary-1</strong>
+                            <div class="input">
+                                <input class="form-field" v-model="colors['--primary-1']" maxlength="7" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div v-bind:class="{ examples: true, open: examplesToggle.first }" @click="examplesToggle.first = !examplesToggle.first">
+                        <span><i></i><i></i></span>
+                        <div>
+                            <ul>
+                                <li v-for="color in codepenChallange" :style="'--color: ' + color" @click="setColor(color, '--primary-1')"></li>
+                            </ul>
+                            <ul>
+                                <li v-for="color in examples" :style="'--color: ' + color" @click="setColor(color, '--primary-1')"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-color">
+                    <div class="preview">
+                        <span style="--background: var(--primary-2)"></span>
+                        <div class="edit">
+                            <strong>--primary-2</strong>
+                            <div class="input">
+                                <input class="form-field" v-model="colors['--primary-2']" maxlength="7" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div v-bind:class="{ examples: true, open: examplesToggle.second }" @click="examplesToggle.second = !examplesToggle.second">
+                        <span><i></i><i></i></span>
+                        <div>
+                            <ul>
+                                <li v-for="color in codepenChallange" :style="'--color: ' + color" @click="setColor(color, '--primary-2')"></li>
+                            </ul>
+                            <ul>
+                                <li v-for="color in examples" :style="'--color: ' + color" @click="setColor(color, '--primary-2')"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-color">
+                    <div class="preview">
+                        <span style="--background: var(--primary-3)"></span>
+                        <div class="edit">
+                            <strong>--primary-3</strong>
+                            <div class="input">
+                                <input class="form-field" v-model="colors['--primary-3']" maxlength="7" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div v-bind:class="{ examples: true, open: examplesToggle.third }" @click="examplesToggle.third = !examplesToggle.third">
+                        <span><i></i><i></i></span>
+                        <div>
+                            <ul>
+                                <li v-for="color in codepenChallange" :style="'--color: ' + color" @click="setColor(color, '--primary-3')"></li>
+                            </ul>
+                            <ul>
+                                <li v-for="color in examples" :style="'--color: ' + color" @click="setColor(color, '--primary-3')"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <div>
+
+                <div class="demo-color">
+                    <div class="preview">
+                        <span style="--background: var(--border)"></span>
+                        <div class="edit">
+                            <strong>--border</strong>
+                            <div class="input">
+                                <input class="form-field" v-model="colors['--border']" maxlength="7" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-color">
+                    <div class="preview">
+                        <span style="--background: var(--border-hover)"></span>
+                        <div class="edit">
+                            <strong>--border-hover</strong>
+                            <div class="input">
+                                <input class="form-field" v-model="colors['--border-hover']" maxlength="7" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-color">
+                    <div class="preview">
+                        <span style="--background: var(--text-color)"></span>
+                        <div class="edit">
+                            <strong>--text-color</strong>
+                            <div class="input">
+                                <input class="form-field" v-model="colors['--text-color']" maxlength="7" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-color">
+                    <div class="preview">
+                        <span style="--background: var(--text-color-headline)"></span>
+                        <div class="edit">
+                            <strong>--text-color-headline</strong>
+                            <div class="input">
+                                <input class="form-field" v-model="colors['--text-color-headline']" maxlength="7" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col">
+
+        <div class="box">
+            <h3>Checkbox &amp; Radio</h3>
+            <div>
+                <div class="demo-toggle">
+
+                    <label class="checkbox">
+                        <input type="checkbox" checked>
+                        <span>Checkbox</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span>Checkbox</span>
+                    </label>
+
+                </div>
+                <div class="demo-toggle">
+
+                    <label class="radio">
+                        <input type="radio" name="r" value="1" checked>
+                        <span>Radio</span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="r" value="2">
+                        <span>Radio</span>
+                    </label>
+
+                </div>
+                <div class="demo-toggle">
+
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span>Switch</span>
+                    </label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span>Switch</span>
+                    </label>
+
+                </div>
+
+                <div class="radioGroup" style="--color: var(--primary-2)">
+                    <label>
+                        <input type="radio" name="r2" value="1" checked>
+                        <span>Radio</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="r2" value="2">
+                        <span>Radio</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="r2" value="3">
+                        <span>Radio</span>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Buttons</h3>
+            <div>
+                <div class="demo-button">
+
+                    <a href="" class="btn" style="--color: var(--primary-2)">Dribbble</a>
+                    <a href="" class="btn"><i data-eva="twitter"></i>Twitter</a>
+                    <a href="" class="btn icon"  style="--color: var(--primary-3)"><i data-eva="arrow-circle-down-outline"></i></a>
+
+                </div>
+                <div class="demo-button">
+
+                    <a href="" class="btn sm" style="--color: var(--primary-2)">Small Button</a>
+                    <a href="" class="btn sm"><i data-eva="at-outline"></i>Mail</a>
+                    <a href="" class="btn sm icon"  style="--color: var(--primary-3)"><i data-eva="bell-outline"></i></a>
+
+                </div>
+                <div class="demo-button">
+
+                    <a href="" class="btn border" style="--color: var(--primary-2)">Outline</a>
+                    <a href="" class="btn border"><i data-eva="color-palette-outline"></i>Colors</a>
+                    <a href="" class="btn border icon"  style="--color: var(--primary-3)"><i data-eva="cube-outline"></i></a>
+
+                </div>
+                <div class="demo-button">
+
+                    <a href="" class="btn sm border" style="--color: var(--primary-2)">Small Outline</a>
+                    <a href="" class="btn sm border"><i data-eva="message-square-outline"></i>Chat</a>
+                    <a href="" class="btn sm border icon"  style="--color: var(--primary-3)"><i data-eva="phone-call-outline"></i></a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col">
+
+        <div class="box">
+            <h3>Icon list</h3>
+            <div>
+
+                <ul class="iconList">
+                    <li>
+                        <a href="">
+                            <div class="icon">
+                                <i data-eva="clipboard-outline"></i>
+                            </div>
+                            <div class="text">
+                                First list entry
+                                <small>Lorem ipsum dolor sit amet</small>
+                            </div>
+                            <i data-eva="chevron-right-outline"></i>
+                        </a>
+                    </li>
+                    <li style="--color: var(--primary-2)">
+                        <a href="">
+                            <div class="icon">
+                                <i data-eva="heart-outline"></i>
+                            </div>
+                            <div class="text">
+                                Another entry
+                                <small>Lorem ipsum dolor sit amet</small>
+                            </div>
+                            <i data-eva="chevron-right-outline"></i>
+                        </a>
+                    </li>
+                    <li style="--color: var(--primary-3)">
+                        <a href="">
+                            <div class="icon">
+                                <i data-eva="flash-outline"></i>
+                            </div>
+                            <div class="text">
+                                Last but not least
+                                <small>Lorem ipsum dolor sit amet</small>
+                            </div>
+                            <i data-eva="chevron-right-outline"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <form class="box">
+            <h3>Form</h3>
+            <div>
+
+                <div class="form-element">
+                    <label>Email</label>
+                    <input class="form-field" type="text" placeholder="hello@hello.com">
+                </div>
+
+                <button class="btn">
+                    <i data-eva="email-outline"></i>Sign up
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- dribbble -->
+<a class="dribbble" href="https://dribbble.com/shots/5848889-Free-UI-Kit-for-CodePenChallenge" target="_blank"><img src="https://cdn.dribbble.com/assets/dribbble-ball-1col-dnld-e29e0436f93d2f9c430fde5f3da66f94493fdca66351408ab0f96e2ec518ab17.png" alt=""></a>

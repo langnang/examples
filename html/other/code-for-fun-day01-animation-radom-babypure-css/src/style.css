@@ -1,0 +1,204 @@
+body {
+  background-color: lightblue; font-family: 'Concert One', cursive; margin: 0; overflow: hidden; padding: 0; }
+.container {
+  background-color: red;
+  height: 350px;
+  left: 40%;
+  position: fixed;
+  text-align: center;
+  top: 60%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+/*   transform: translate(-50%, -50%); */
+}
+/* /////////////////////////////////////////// HEAD /////// */
+#head {
+  animation: head-anima 0.8s infinite ease-in-out;
+  background-color: #ffede2;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-between;
+  left: 5px;
+  overflow: hidden;
+  position: absolute;
+  top: 10px;
+  transform: scale(0.9);
+  width: 150px;
+}
+@keyframes head-anima {
+  0% {left: 5px;}
+  50% {left: 45px;}
+}
+#hair-container {
+  height: 40px;
+  position: relative;
+  width: 150px;
+}
+.hair {
+  background-color: orange;
+  position: absolute;
+}
+#hair-left {
+  animation: hair-anima 0.8s infinite ease-in-out;
+  border: 0px solid #FD9408;
+  border-bottom: 6px solid #FD9408;
+  border-radius: 20% 80% 10% 50%;
+  bor-sizing: border-box;
+  height: 40px;
+  left: 30px;
+  top: -10px;
+  transform: rotate(-20deg);
+  width: 90px;
+}
+@keyframes hair-anima {
+  0% {left: 30px;}
+  50% {left: 20px;}
+}
+#hair-right {
+  border-radius: 0 80% 0 80%;
+  height: 30px;
+  right: 0;
+  top: -10px;
+  transform: rotate(20deg);
+  width: 75px;
+}
+#eye-container {
+/*   background-color: red; */
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto -5px auto;
+  position: relative;
+  width: 100px;
+}
+.eye {
+  background-color: #515151;
+  border-radius: 50%;
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+.eye::before {
+  content:"";
+  background-color: #333;
+  border-radius: 50%;
+  height: 15px;
+  right: 1px;
+  position: absolute;
+  top: 1px;
+  width: 15px;
+}
+.eye::after {
+  animation: eye-anima 1.5s infinite ease-in-out;
+  content:"";
+  background-color: #ffede2;
+  border-radius: 50%;
+  height: 30px;
+  left: -4px;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+}
+@keyframes eye-anima {
+  0% {top: 15px;}
+  70% {top: 15px;}
+  80% {top: 30px;}
+}
+#mouth-container{
+  animation: mouth-anima 0.25s infinite ease-in-out;
+  height: 30px;
+  margin: -5px auto 35px auto;
+  position: relative;
+  transform: scale(0.9);
+  width: 75px;  
+  filter: url('#goo');
+}
+@keyframes mouth-anima {
+  0% {width: 75px;}
+  50% {width: 50px;}
+}
+.mouth {
+  background-color: #FAA097;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#mouth-left {
+  height: 35px;
+  left: 0;
+  width: 35px;
+}
+#mouth-center{
+  height: 28px;
+  left: calc(50% - 25px);
+  width: 50px;
+}
+#mouth-right {
+  height: 38px;
+  right: 0;
+  width: 38px;
+}
+/* /////////////////////////////////////////// BODY /////// */
+#baby-body {
+  animation: body-anima 0.8s infinite ease-in-out;
+  background-color: #f7f7f7;
+  border-radius: 100px;
+  border-radius: 150px 150px 100px 150px;
+  height: 320px;
+  left: -15px;
+  position: absolute;
+  width: 200px;
+}
+@keyframes body-anima {
+  0% {left: -15px;}
+  50% {left: 15px;}
+}
+#baby-body:after {
+  content:"";
+  background-color: #eaeaea;
+  border-radius: 50%;
+  height: 155px;
+  left: 22px;
+  position: absolute;
+  top: 10px;
+  width: 155px;
+}
+#baby-body:before {
+  content:"";
+  background-color: #eaeaea;
+  border-radius: 150px;
+  height: 350px;
+  left: 0;
+  position: absolute;
+  width: 200px;
+  z-index: -99;
+}
+#baby-shadow {
+  animation: shadow-anima 0.8s infinite ease-in-out;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 150px;
+  height: 350px;
+  left: -20px;
+  position: absolute;
+  top: 15px;
+  width: 200px;
+  z-index: -99;
+}
+@keyframes shadow-anima {
+  0% {left: -20px;}
+  50% {left: 0px;}
+}
+/* /////////////////////////////////////////// CREDIT /////// */
+#link {
+  bottom: 20px;
+  color: #fff;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#link p {font-size: 20px; margin: 0; margin-left: 5px;}
+#link:hover {opacity: 1;}

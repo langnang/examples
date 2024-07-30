@@ -1,0 +1,131 @@
+<?php
+
+// getfiles(__DIR__);
+
+function getfiles($path, $callback)
+{
+    foreach (scandir($path) as $afile) {
+        if ($afile == '.' || $afile == '..' || $afile == 'vendor' || $afile[0] == '.' || $afile[0] == '_')
+            continue;
+        if (is_dir($path . '/' . $afile)) {
+            $callback($afile, $path);
+            // echo '<a href="' . $_SERVER['REQUEST_URI'] . $afile . '">' . $path . '/' . $afile . '</a><br />';
+            // getfiles($path . '/' . $afile);
+        } else {
+            // echo $path . '/' . $afile . '<br />';
+        }
+    }
+}
+
+
+?>
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <!-- 必须的 meta 标签 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap 的 CSS 文件 -->
+    <link rel="stylesheet" href="./../../assets/lib/bootstrap/4.6.2/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <title>Examples</title>
+
+    <style>
+        .card-img-top {
+            /* width: 100% !important; */
+            height: 181px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">HTML Examples</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto d-none">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 d-none">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="jumbotron" style="padding:3rem 2rem;">
+            <div class="container">
+                <h1 class="display-4">范例（Examples）</h1>
+                <p class="lead">范例（Examples），一般指代可以仿效的事例；典范的例子。</p>
+            </div>
+
+        </div>
+    </header>
+    <div class="container">
+        <div class="row row-cols-3">
+            <?php
+            getfiles(__DIR__, function ($afile, $path) {
+                $html = '<div class="col p-2">
+                <a class="card" href="./' . $afile . '/dist">';
+                if (file_exists($afile . '/screenshot.png')) {
+                    $html .= '<img src="./' . $afile . '/screenshot.png" class="card-img-top" alt="...">';
+                    return false;
+                } else if (file_exists($afile . '/dist')) {
+                    // $html .= '<iframe src="./' . $afile . '/dist" ></iframe>';
+                    $html .= '<img src="holder.js/362x181" class="card-img-top" alt="...">';
+                }
+                echo $html . '
+                    <div class="card-body">
+                        <h5 class="card-title">' . $afile . '</h5>
+                        <p class="card-text">The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.</p>
+                    </div>
+                </a>
+            </div>';
+
+            });
+            ?>
+
+        </div>
+    </div>
+
+    <!-- JavaScript 文件是可选的。从以下两种建议中选择一个即可！ -->
+
+    <!-- 选项 1：jQuery 和 Bootstrap 集成包（集成了 Popper） -->
+    <!-- <script crossorigin="anonymous" src="./../assets/lib/jquery/3.7.1/jquery.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script> -->
+    <!-- <script crossorigin="anonymous" src="./../assets/lib/bootstrap/4.6.2/js/bootstrap.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> -->
+
+    <!-- 选项 2：Popper 和 Bootstrap 的 JS 插件各自独立 -->
+    <!--
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-Lge2E2XotzMiwH69/MXB72yLpwyENMiOKX8zS8Qo7LDCvaBIWGL+GlRQEKIpYR04" crossorigin="anonymous"></script>
+    -->
+
+    <script crossorigin="anonymous" src="./../../assets/lib/holderjs/2.9.9/holder.min.js"></script>
+    <!-- <script crossorigin="anonymous" src="https://www.unpkg.com/holderjs@2.9.9/holder.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+- var n_per_dim = 3, n_dims = 3;
+//- number of cubes for outer component
+- var n_o = Math.pow(2, n_dims);
+//- nuber of cubes for inner component
+- var n_i = Math.pow(n_per_dim, n_dims) - n_o;
+
+mixin cube()
+	.cube
+		- var n_faces = 6;
+		while n_faces--
+			.cube__face
+
+.assembly
+	//- inner component
+	.comp-3d.comp-3d--i
+		while n_i--
+			+cube()
+	//- outer component
+	.comp-3d.comp-3d--o
+		while n_o--
+			.pos
+				+cube()
