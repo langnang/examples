@@ -1,1 +1,0 @@
-// Based on the Dribbble shot by Nick Buturishvili. Check it out here: https://dribbble.com/shots/2807757-Micro-animation-for-site-scroll

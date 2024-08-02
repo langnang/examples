@@ -1,1 +1,0 @@
-// This was made in 2012. https://vuild.com/game-watch/ is a bit better but still suffers from entropy.
