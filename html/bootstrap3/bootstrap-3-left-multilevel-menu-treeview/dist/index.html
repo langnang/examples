@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Bootstrap 3 Left Multilevel Menu (Treeview)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <div class="col-md-12"><h2>Bootstrap 3 Left Multilevel Menu (Treeview)</h2></div>
+  <div class="col-md-3">
+
+    <ul class="nav nav-list-main">
+      <li><label class="nav-toggle nav-header"><span class="nav-toggle-icon glyphicon glyphicon-chevron-right"></span> <a href="https://www.google.com/">Header 1</a></label>
+            <ul class="nav nav-list nav-left-ml">
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><label class="nav-toggle nav-header"><span class="nav-toggle-icon glyphicon glyphicon-chevron-right"></span> <a href="https://www.google.com/">Header 1.1</a></label>
+                    <ul class="nav nav-list nav-left-ml">
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><label class="nav-toggle nav-header"><span class="nav-toggle-icon glyphicon glyphicon-chevron-right"></span> <a href="https://www.google.com/">Header 1.1.1</a></label>
+                            <ul class="nav nav-list nav-left-ml">
+                                <li><a href="#">Link</a></li>
+                                <li><a href="#">Link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-divider"></li>
+        <li><label class="nav-toggle nav-header"><span>Header 2</span></label>
+            <ul class="nav nav-list nav-left-ml">
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><label class="nav-toggle nav-header"><span>Header 2.1</span></label>
+                    <ul class="nav nav-list nav-left-ml">
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                      <li><label class="nav-toggle nav-header"><span>Header 2.1.1</span></label>
+                            <ul class="nav nav-list nav-left-ml">
+                                <li><a href="#">Link</a></li>
+                                <li><a href="#">Link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+              <li><label class="nav-toggle nav-header"><span>Header 2.2</span></label>
+                    <ul class="nav nav-list nav-left-ml">
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                      <li><label class="nav-toggle nav-header"><span>Header 2.2.1</span></label>
+                            <ul class="nav nav-list nav-left-ml">
+                                <li><a href="#">Link</a></li>
+                                <li><a href="#">Link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+  </div>
+</div>
+<!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

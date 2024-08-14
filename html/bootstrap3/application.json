@@ -2,6 +2,10 @@
   "_meta": { "slug": "", "name": "", "description": "", "type": "", "status": "", "contents": [] },
   "_content": { "slug": "", "title": "", "description": "", "type": "", "status": "", "metas": [] },
   "metas": [
+    { "slug": "style", "name": "Styles", "contents": "", "type": "category", "description": "Common patterns for building sites and apps that build on existing components and utilities with custom CSS and more." },
+    { "slug": "layout", "name": "Layout", "contents": "", "type": "category", "description": "Common patterns for building sites and apps that build on existing components and utilities with custom CSS and more." },
+    { "slug": "components", "name": "Components", "contents": "", "type": "category", "description": "Common patterns for building sites and apps that build on existing components and utilities with custom CSS and more." },
+    { "slug": "plugins", "name": "Plugins", "contents": "", "type": "category", "description": "Common patterns for building sites and apps that build on existing components and utilities with custom CSS and more." },
     { "slug": "snippets", "name": "Snippets", "contents": "", "type": "category", "description": "Common patterns for building sites and apps that build on existing components and utilities with custom CSS and more." },
     {
       "slug": "custom-components",

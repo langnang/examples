@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Responsive contact form using Bootstrap 3 and Google Maps API</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="contact" id="contact">
+  <div class="container">
+    <div class="col-md-offset-1 col-md-10">
+      <h2>Contact Me<i class="fa fa-paper-plane-o"></i></h2>
+      <div id="map-canvas"></div>
+    </div>
+    <form method="post" action="contact.php" name="contactform" id="contactform">
+      <div class="col-md-offset-1 col-md-5">
+        <fieldset>
+          <input name="name" type="text" id="name" size="30" placeholder="Name">
+          <br>
+          <input name="email" type="text" id="email" size="30" placeholder="Email">
+          <br>
+          <input name="phone" type="text" id="phone" size="30" placeholder="Phone">
+          <br>
+          <input name="human" type="text" id="human" size="30" placeholder="Prove your not a robot... What is 2+2?">
+          <br>
+        </fieldset>
+      </div>
+      <div class="col-md-5">
+        <fieldset>
+          <textarea name="comments" cols="40" rows="20" id="comments" placeholder="Message"></textarea>
+        </fieldset>
+      </div>
+      <div class="col-md-offset-1 col-md-10">
+        <fieldset>
+          <button type="submit" class="btn btn-lg" id="submit" value="Submit">Send Message</button>
+        </fieldset>
+      </div>
+    </form>
+  </div>
+</div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

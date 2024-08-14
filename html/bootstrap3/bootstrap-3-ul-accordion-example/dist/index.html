@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Bootstrap 3 ul Accordion example</title>
+  <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-stacked" id="accordion1">
+            <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">Test12</a>
+
+                <ul id="firstLink" class="collapse">
+                    <li>SubTest1</li>
+                    <li>SubTest1</li>
+                    <li>SubTest1</li>
+                </ul>
+              
+            </li>
+            <li class="panel"> <a data-toggle="collapse" data-parent="#accordion1" href="#secondLink">Test2</a>
+
+                <ul id="secondLink" class="collapse">
+                    <li>SubTest2</li>
+                    <li>SubTest2</li>
+                    <li>SubTest2</li>
+                    <li>SubTest2</li>
+                </ul>
+            </li>
+            <li><a href="#">Test1</a>
+            </li>
+            <li><a href="#">Test1</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">Lorem</div>
+</div>
+<!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+</body>
+</html>

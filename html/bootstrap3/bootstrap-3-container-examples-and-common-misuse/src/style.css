@@ -1,0 +1,57 @@
+/*========================================================
+=            USELESS / FOR SETTING UP EXAMPLE            =
+========================================================*/
+body{ margin: 0; padding: 0; background: #fafafa; }
+main {
+  background: #e3e3e3;
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+main.padding {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+p.absolute-example {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0; 
+  background: yellow;
+}
+section {
+  padding: 30px 0;
+  margin: 20px 0;
+}
+p.row-example { color: orange; text-align: center; }
+p.toggle {
+  text-align: center;
+}
+.by-me { text-align: center; }
+
+
+
+/*==========================================================
+=            FOR VISUALIZING THE ROW AS A BLOCK            =
+==========================================================*/
+.row {
+  position: relative;
+  padding-top: 30px;
+  background: orange;
+}
+#with-container-example {
+  background: pink;
+}
+
+#with-no-container {
+  background: purple;
+}
+#with-container-fluid {
+  background: green;
+}
