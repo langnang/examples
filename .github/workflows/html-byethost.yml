@@ -9,7 +9,7 @@ on:
 
 jobs:
   deploy:
-    name: 🎉 Deploy to langnang.byethost14.com
+    name: 🎉 Deploy to langnang.byethost32.com
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
