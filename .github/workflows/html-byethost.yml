@@ -1,4 +1,4 @@
-name: 🚀 Deploy html on push with FTP
+name: 🚀 Deploy html directory on push with FTP
 
 on:
   push:
