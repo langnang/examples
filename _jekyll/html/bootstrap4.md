@@ -1,6 +1,6 @@
 ---
 title: Bootstrap@4
-slug: html-bootstrap@4
+slug: html/bootstrap@4
 ---
 
 {% for meta in site.data.examples.metas %}
@@ -9,13 +9,14 @@ slug: html-bootstrap@4
   <h2 class="h2">{{category.name}}</h2>
   <p class="mb-0">{{category.description}}</p>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-    {% for content_slug in category.contents %}
+    {% for category_content in category.contents %}
+      {% assign content_slug = category_content | prepend: "html/bootstrap4/" %}
       {% for content in site.data.examples.contents %}
         {% if content_slug == content.slug %}
         <div class="col p-2">
           <a class="card text-decoration-none">
             <div class="card-img-top">
-              <img src="https://cdn.jsdelivr.net/gh/langnang/examples/html/bootstrap4/{{content.slug}}/screenshot.png" alt="...">
+              <img src="https://cdn.jsdelivr.net/gh/langnang/examples/{{content.slug}}/screenshot.png" alt="...">
             </div>
             <div class="card-body">
               <h5 class="card-title">{{content.title}}</h5>
