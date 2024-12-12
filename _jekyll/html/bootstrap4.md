@@ -16,7 +16,7 @@ slug: html/bootstrap@4
         <div class="col p-2">
           <a class="card text-decoration-none">
             <div class="card-img-top">
-              <img src="https://cdn.jsdelivr.net/gh/langnang/examples/{{content.slug}}/screenshot.png" alt="...">
+              <img class="viewer" src="https://cdn.jsdelivr.net/gh/langnang/examples/{{content.slug}}/screenshot.png" alt="...">
             </div>
             <div class="card-body">
               <h5 class="card-title">{{content.title}}</h5>
