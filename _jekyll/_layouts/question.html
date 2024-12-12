@@ -1,0 +1,109 @@
+---
+layout: default
+---
+<!-- 类型：单选radio\多选checkbox\判断switch\填空input\简述markdown\编程code\... -->
+<!-- question_type:  -->
+
+
+{{content }}
+
+
+<div class="container" id="app">
+
+  <div class="row col-12">
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-12">
+      <div class="alert alert-warning text-center justify-content-center" role="alert">
+        <a class="small" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          参考答案&解析
+        </a>
+      </div>
+
+    </div>
+    <div class="col-12">
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script src="https://www.unpkg.com/axios@1.6.8/dist/axios.min.js"></script>
+<script src="https://www.unpkg.com/jquery"></script>
+<script src="https://www.unpkg.com/vue@2.7.16/dist/vue.min.js"></script>
+<script src="https://www.unpkg.com/lazyload"></script>
+<script src="https://www.unpkg.com/bootstrap@4"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      fetch: {
+      },
+      form: {
+        data: {
+          title: "",
+        },
+      },
+      table: {
+        data: [],
+        page: 1,
+        size: 60,
+        total: 0
+      }
+    },
+    computed: {
+      tableData() {
+        return this.table.data.filter(v => v.title.indexOf(this.form.data.title) > -1)
+      },
+      tableCurrentData() {
+        const start = (this.table.page - 1) * this.table.size;
+        return this.tableData.slice(start, start + this.table.size)
+      },
+      tableMaxPage() {
+        return this.table.total % this.table.size != 0 ? Math.floor(this.table.total / this.table.size) + 1 : Math.floor(this.table.total / this.table.size)
+      },
+      tablePagination() {
+        const minPage = 1
+        const maxPage = this.tableMaxPage;
+        return [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5].map(v => v + this.table.page).reduce((t, v) => v >= minPage && v <= maxPage ? [...t, v] : t, [])
+      }
+    },
+    created() {
+      // this.fetchData();
+    },
+    mounted() {
+      lazyload();
+    },
+    updated() {
+      lazyload();
+    },
+    methods: {
+      fetchData() {
+        axios.get("{{ page.icon.json }}").then(res => {
+          this.fetch = res.data;
+          const { contents } = res.data;
+          this.table.data = contents;
+          this.table.total = contents.length;
+        })
+      },
+      handleTableSizePage() {
+
+      },
+      handleTableCurrentPage(val) {
+        if (val == 'first') val = 1
+        else if (val == '-1') val = this.table.page - 1 > 0 ? this.table.page - 1 : this.table.page;
+        else if (val == '+1') val = this.table.page + 1 > this.tableMaxPage ? this.tableMaxPage : this.table.page + 1;
+        else if (val == 'last') val = this.tableMaxPage;
+        this.table.page = val;
+      }
+    }
+  })
+</script>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en-US" }}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% seo %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  {% include head-custom.html %}
+  <style>
+    .page-item {}
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      padding: 73px 0 0;
+      box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    }
+
+    .sidebar>ul {
+      height: calc(100vh - 73px);
+      overflow-y: auto;
+    }
+
+    .markdown-body pre code,
+    .markdown-body pre tt {
+      /* white-space: normal; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid markdown-body">
+    {% if page.title and site.title and site.title != page.title %}
+    <header class="h1 d-none">
+
+    </header>
+    <h1 class="pt-3 my-0 d-flex justify-content-between sticky-top">
+      <span>
+        {% if page.brand %}
+        <img src="{{page.brand}}" alt="" style="height: 28px;">
+        {% endif %}
+        {{page.title}}
+      </span>
+      <a href="{{ '/' | absolute_url }}">{{ site.title }}</a>
+    </h1>
+    {% else if site.title and site.title != page.title %}
+    <h1 class="pt-3 my-0 sticky-top">
+      <a href="{{ '/' | absolute_url }}">{{ site.title }}</a>
+    </h1>
+    {% endif %}
+
+    <section class="pt-1" role="content" style="min-height: calc(100vh - 252px);">
+      {{ content }}
+    </section>
+
+    <div class="footer border-top border-gray-light my-5 pt-3 text-right text-gray">
+      <!-- {% if site.reprint %} -->
+      <!-- 转载自: <a href="{{site.reprint.url}}" target="_blank">{{site.reprint.title}}</a> -->
+      <!-- {% endif %} -->
+      {% if site.github.private != true and site.github.license %}
+      This site is open source. {% github_edit_link "Improve this page" %}.
+      {% endif %}
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+  <script>anchors.add();</script>
+  <script src="https://www.unpkg.com/holderjs@2.9.9/holder.min.js"></script>
+  <script src="https://www.unpkg.com/bootstrap@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/dist/perfect-scrollbar.min.js"></script>
+  <script>
+    lazyload();
+    // new PerfectScrollbar('#app', {
+    //   wheelSpeed: 2,
+    //   wheelPropagation: true,
+    //   minScrollbarLength: 20
+    // });
+  </script>
+</body>
+
+</html>

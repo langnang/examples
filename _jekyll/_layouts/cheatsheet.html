@@ -1,0 +1,156 @@
+---
+layout: fluid
+---
+<style>
+  [data-wrapper="cheatsheet"] h2 {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
+
+  [data-wrapper="cheatsheet"] h3 {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    /* margin-top: 1rem; */
+  }
+
+  .c1,
+  .s2 {}
+</style>
+
+
+<div class="container-fluid" data-wrapper="cheatsheet">
+  <div class="row">
+    <aside id="sidebar" role="aside" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      {% include toc.html html=content %}
+    </aside>
+    <main id="app" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <div v-for="(group,index) in groups.slice(1)" :key="group">
+        <div class="row row-cols-1">
+          <div class="col px-2" data-toggle="collapse" :href="'#CheatSheet'+index" v-html="'<h2'+group.title"></div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3" :id="'CheatSheet'+index" data-masonry='{ "itemSelector": ".col"}'>
+          <div class="col my-2 px-2" v-for="item in group.texts" :key="item">
+            <div class="card">
+              <div class="card">
+                <div class="card-body px-2 py-2" v-html="'<h3'+item">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- <div>
+    <div class="row row-cols-1">
+      <div class="col px-2" v-html="articlePre"></div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3" data-masonry='{ "itemSelector": ".col"}'>
+      <div class="col my-2 px-2" v-for="item in articleText" :key="item">
+        <div class="card">
+          <div class="card">
+            <div class="card-body px-2 py-2" v-html="'<h3'+item">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+
+<script src="https://www.unpkg.com/axios@1.6.8/dist/axios.min.js"></script>
+<script src="https://www.unpkg.com/vue@2.7.16/dist/vue.min.js"></script>
+<script src="https://www.unpkg.com/lazyload"></script>
+<script src="https://www.unpkg.com/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/dist/perfect-scrollbar.min.js"></script>
+<script>
+  new PerfectScrollbar('#sidebar', {
+    wheelSpeed: 2,
+    wheelPropagation: true,
+    minScrollbarLength: 20
+  });
+
+</script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      fetch: {
+      },
+      form: {
+        data: {
+          title: "",
+        },
+      },
+      table: {
+        data: [],
+        page: 1,
+        size: 60,
+        total: 0
+      },
+      article: {
+        data: {
+          html: `{{content}}`
+        }
+      }
+    },
+    computed: {
+      groups() {
+        let res = this.article.data.html.split("<h2");
+        res = res.map(v => {
+          return {
+            html: v,
+            title: v.split("<h3")[0],
+            texts: v.split("<h3").slice(1),
+          }
+        });
+        console.log(res);
+        return res;
+      },
+      articleText() {
+        return this.article.data.html.split("<h3").slice(1)
+      },
+      articlePre() {
+        return this.article.data.html.split("<h3")[0]
+      },
+      articleTitle() {
+        return this.article.data.html.split("</h1")[0].split(">")[1]
+      }
+    },
+    created() {
+      // console.log(this.articleTitle)
+    },
+    mounted() {
+      lazyload();
+      new PerfectScrollbar('#app', {
+        wheelSpeed: 2,
+        wheelPropagation: true,
+        minScrollbarLength: 20
+      });
+      // Masonry({})
+      // new Masonry(".row", {
+      //   // options...
+      //   itemSelector: '.col-4',
+      // });
+    },
+    updated() {
+      lazyload();
+      new PerfectScrollbar('#app', {
+        wheelSpeed: 2,
+        wheelPropagation: true,
+        minScrollbarLength: 20
+      });
+      // new Masonry(".row", {
+      //   // options...
+      //   itemSelector: '.col-4',
+      // });
+    },
+    methods: {
+    }
+  })
+
+</script>
